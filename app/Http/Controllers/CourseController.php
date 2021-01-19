@@ -46,13 +46,6 @@ class CourseController extends Controller
         return view('courses.edit',compact('course'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Course  $course
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Course $course)
     {
         $request->validate([
@@ -63,15 +56,9 @@ class CourseController extends Controller
         $course->update($request->all());
         return redirect()->route('courses.index')->with('sucess','Se ha actualizado con éxito');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Course  $course
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Course $course)
     {
-        //
+        $course->delete();
+        return redirect()->route('courses.index')->with('success','Se ha borrado exitosamente');
     }
 }

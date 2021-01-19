@@ -14,6 +14,10 @@
         <td>{{$course->hours}}</td>
         <td>{{$course->description}}</td>
         <td><a href="{{route('courses.edit',$course)}}">Editar</a></td>
+        <td>{!! Form::open(['route'=>['courses.destroy',$course],'method'=>'DELETE']) !!}
+            {!! Form::submit('Borrar') !!}
+            {!! Form::close() !!}
+        </td>
     @endforeach
 
 </tr>
