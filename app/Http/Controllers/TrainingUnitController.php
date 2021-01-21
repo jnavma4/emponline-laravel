@@ -25,27 +25,24 @@ class TrainingUnitController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'code'=>'unique:training_units|required',
             'name'=>'required',
-            'hours'=>'required',
             'description'=>'required',
-            'schedule'=>'required',
             'course_id'=>'required'
         ]);
+        if($request->hasFile('temario')) {
+            $temario=$request->file('temario');
+            $nombre=time().$temario->getClientOriginalName();
+            $urltemario['url']='/images/'.$nombre;
+        }
 
         TrainingUnit::create($request->all());
+        TrainingUnit::temario()->create($urltemario);
         return redirect()->route('training-units.index')->with('success','Se ha creado correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\TrainingUnit  $trainingUnit
-     * @return \Illuminate\Http\Response
-     */
     public function show(TrainingUnit $trainingUnit)
     {
-        //
+        return view('training-units.show',compact('trainingUnit'));
     }
 
     /**

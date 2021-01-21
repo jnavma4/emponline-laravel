@@ -11,4 +11,8 @@ class Course extends Model
     protected $fillable=[
         'name','hours','description'
     ];
+    /**
+     * @var mixed
+     */
+    private $id;
 }

@@ -17,6 +17,7 @@
         <td>{{$course->name}}</td>
         <td>{{$course->hours}}</td>
         <td>{{$course->description}}</td>
+         <td><a href="{{route('courses.show',$course)}}">Ver</a></td>
         <td><a href="{{route('courses.edit',$course)}}">Editar</a></td>
         <td>{!! Form::open(['route'=>['courses.destroy',$course],'method'=>'DELETE']) !!}
             {!! Form::submit('Borrar') !!}

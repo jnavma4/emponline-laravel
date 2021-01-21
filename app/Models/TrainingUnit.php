@@ -9,8 +9,10 @@ class TrainingUnit extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'code','name','hours','description','schedule','course_id'
+        'name','description','course_id'
     ];
 
-
+    public  function temario(){
+        return $this->morphOne('App\Models\Temario','tema');
+    }
 }

@@ -29,7 +29,6 @@
         main{
             margin-top: 5%;
             background-color:#d0e8f2 ;
-            text-align: center;
         }
         table{
             margin: auto;

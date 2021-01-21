@@ -6,23 +6,18 @@
     <table class="table">
         <thead class="thead-dark">
         <tr>
-            <th>Código</th>
             <th>Nombre</th>
-            <th>Horas</th>
             <th>Descripción</th>
-            <th>Horario</th>
             <th>Curso</th>
         </tr>
         </thead>
         <tbody>
             @foreach($trainingUnits as $trainingUnit )
             <tr>
-                <td>{{$trainingUnit->code}}</td>
                 <td>{{$trainingUnit->name}}</td>
-                <td>{{$trainingUnit->hours}}</td>
                 <td>{{$trainingUnit->description}}</td>
-                <td>{{$trainingUnit->schedule}}</td>
                 <td>{{$trainingUnit->course_id}}</td>
+                <td><a href="{{route('training-units.show',$trainingUnit)}}">Ver</a></td>
             </tr>
             @endforeach
         </tbody>

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\TrainingUnit;
 use http\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CourseController extends Controller
 {
@@ -31,15 +33,10 @@ class CourseController extends Controller
         return redirect()->route('courses.index')->with('success','Se ha creado correctamente');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Course  $course
-     * @return \Illuminate\Http\Response
-     */
     public function show(Course $course)
     {
-        //
+        $ufos=DB::table('training_units')->where('course_id',$course->id)->get();
+        return view('courses.show',compact('course','ufos'));
     }
     public function edit(Course $course)
     {
@@ -54,7 +51,7 @@ class CourseController extends Controller
             'description'=>'required'
         ]);
         $course->update($request->all());
-        return redirect()->route('courses.index')->with('sucess','Se ha actualizado con éxito');
+        return redirect()->route('courses.index')->with('success','Se ha actualizado con éxito');
     }
     public function destroy(Course $course)
     {
