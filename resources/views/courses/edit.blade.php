@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('layouts.app')
 @section('title','Edición de curso')
 @section('content')
     <h2>Edición de curso</h2>

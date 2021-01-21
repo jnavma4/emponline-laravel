@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Ruta de cursos
 Route::resource('/courses',App\Http\Controllers\CourseController::class)->names('courses');
+//Ruta de unidad-formativa
+Route::resource('/training-units',App\Http\Controllers\TrainingUnitController::class)->names('training-units');
