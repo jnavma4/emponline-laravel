@@ -28,5 +28,5 @@
 
 
 </table>
-    <a href="{{route('courses.create')}}">Crear curso</a>
+    <a class="btn btn-success" href="{{route('courses.create')}}">Crear curso</a>
 @endsection
