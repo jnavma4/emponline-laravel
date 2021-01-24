@@ -60,6 +60,6 @@ class TrainingUnitController extends Controller
     public function destroy(TrainingUnit $trainingUnit)
     {
         $trainingUnit->delete();
-        return view('training-units.index')->with('success','Se ha eliminado correctamente');
+        return redirect()->route('training-units.index')->with('success','Se ha borrado exitosamente');
     }
 }

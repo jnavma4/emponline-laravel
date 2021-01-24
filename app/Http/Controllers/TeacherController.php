@@ -72,6 +72,6 @@ class TeacherController extends Controller
     public function destroy(Teacher $teacher)
     {
         $teacher->delete();
-        return view('teachers.index')->with('success','Se ha eliminado correctamente');
+        return redirect()->route('teachers.index')->with('success','Se ha borrado exitosamente');
     }
 }
