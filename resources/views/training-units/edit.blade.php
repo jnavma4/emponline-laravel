@@ -1,0 +1,10 @@
+@extends('layouts.app')
+@section('title','Edición de unidad formativa')
+@section('content')
+    <h2>Edición de unidad formativa</h2>
+    {!! Form::model($trainingUnit,['route'=>['training-units.update',$trainingUnit],'method'=>'PUT','files'=>'true']) !!}
+    @include('training-units.form.form')
+    <a  href="{{route('training-units.index')}}">Cancelar</a>
+    {!! Form::submit('Guardar') !!}
+    {!! Form::close() !!}
+@endsection
