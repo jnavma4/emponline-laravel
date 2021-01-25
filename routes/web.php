@@ -25,4 +25,8 @@ Route::resource('/courses',App\Http\Controllers\CourseController::class)->names(
 //Ruta de unidad-formativa
 Route::resource('/training-units',App\Http\Controllers\TrainingUnitController::class)->names('training-units');
 //Ruta de profesores
-Route::resource('teachers',App\Http\Controllers\TeacherController::class)->names('teachers');
+Route::resource('/teachers',App\Http\Controllers\TeacherController::class)->names('teachers');
+//Ruta de alumnos
+Route::resource('/students',App\Http\Controllers\StudentController::class)->names('students');
+
+
