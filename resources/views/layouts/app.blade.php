@@ -13,25 +13,43 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!--link rel="dns-prefetch" href="//fonts.gstatic.com"-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+
 
     <!-- Styles -->
     <link href="{!! asset('css/app.css') !!}" rel="stylesheet">
     <style rel="stylesheet">
         {{-- Cambiar por colores ejército: Son colores temporales--}}
         body{
-            background-color: #fcf8ec  ;
+            background-color: #3498DB   ;
+            <!-- Colores de fondo -->
         }
+        .titulos{
+
+        }
+        
+        h2{font-family: 'Open Sans', sans-serif;
+        }
+
+        h3{font-family: 'Fraunces', serif;
+        font-family: 'Open Sans', sans-serif;
+        }
+        
         nav{
-            background-color: #79a3b1;
+            background-color: #21618C ;
+            <!-- Color barra superior -->
         }
         main{
-            margin-top: 5%;
-            background-color:#d0e8f2 ;
+            margin-top: 10%;
+            background-color:#AED6F1;
+            border-radius:20px;
         }
         table{
-            margin: auto;
+            margin: auto ;
+            background-color:#21618C;
+
         }
         .boton{
             background-color: #2a9055;
