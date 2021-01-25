@@ -5,5 +5,6 @@
     @include('training-units/form/form')
     <a class="btn boton" href="{{route('training-units.index')}}">Cancelar</a>
     {!! Form::submit('Enviar',['class'=>'btn boton']) !!}
+        <!--{!! Form::submit('Enviar',['class'=>'btn boton']) !!}-->
     {!! Form::close() !!}
 @endsection

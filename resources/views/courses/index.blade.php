@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title','Gestión de cursos')
 @section('content')
-<h2>Gestión de cursos</h2>
+<h2 class="titulos">Gestión de cursos</h2>
 <table class="table">
     <thead class="thead-dark">
     <tr>
@@ -28,5 +28,5 @@
 
 
 </table>
-    <a href="{{route('courses.create')}}">Crear curso</a>
+    <a class="btn btn-success" href="{{route('courses.create')}}"><img src="{{asset('img/boton-agregar.svg')}}" height="20px"/> Crear curso</a>
 @endsection
