@@ -25,18 +25,12 @@ class TrainingUnitController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required',
-            'description'=>'required',
+            'title'=>'required',
+            'body'=>'required',
             'course_id'=>'required'
         ]);
-        if($request->hasFile('temario')) {
-            $temario=$request->file('temario');
-            $nombre=time().$temario->getClientOriginalName();
-            $urltemario['url']='/images/'.$nombre;
-        }
 
         TrainingUnit::create($request->all());
-        TrainingUnit::temario()->create($urltemario);
         return redirect()->route('training-units.index')->with('success','Se ha creado correctamente');
     }
 
@@ -45,37 +39,27 @@ class TrainingUnitController extends Controller
         return view('training-units.show',compact('trainingUnit'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\TrainingUnit  $trainingUnit
-     * @return \Illuminate\Http\Response
-     */
     public function edit(TrainingUnit $trainingUnit)
     {
-        //
+        $courses=Course::orderBy('name','ASC')->pluck('name','id');
+        return view('training-units.edit',compact('trainingUnit','courses'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TrainingUnit  $trainingUnit
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, TrainingUnit $trainingUnit)
     {
-        //
+        $request->validate([
+            'title'=>'required',
+            'body'=>'required',
+            'course_id'=>'required'
+        ]);
+
+        $trainingUnit->update($request->all());
+        return redirect()->route('training-units.index')->with('success','Se ha actualizado');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\TrainingUnit  $trainingUnit
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(TrainingUnit $trainingUnit)
     {
-        //
+        $trainingUnit->delete();
+        return redirect()->route('training-units.index')->with('success','Se ha borrado exitosamente');
     }
 }

@@ -11,12 +11,9 @@
     @foreach($ufos as $trainingUnit)
         <div class="list-group list-group-flush">
             <div class="list-group-item">
-                <h3 class="card-title">{{$trainingUnit->name}}</h3>
-                <p class="card-text">{{$trainingUnit->description}} </p>
+                <h3 class="card-title">{{$trainingUnit->title}}</h3>
+                <p class="card-text">{{$trainingUnit->body}} </p>
             </div>
-
-
-
         </div>
 
     @endforeach

@@ -6,18 +6,24 @@
     <table class="table">
         <thead class="thead-dark">
         <tr>
-            <th>Nombre</th>
-            <th>Descripción</th>
+            <th>Título</th>
             <th>Curso</th>
+            <th>Ver</th>
         </tr>
         </thead>
         <tbody>
             @foreach($trainingUnits as $trainingUnit )
             <tr>
-                <td>{{$trainingUnit->name}}</td>
-                <td>{{$trainingUnit->description}}</td>
+                <td>{{$trainingUnit->title}}</td>
                 <td>{{$trainingUnit->course_id}}</td>
                 <td><a href="{{route('training-units.show',$trainingUnit)}}">Ver</a></td>
+                <td>
+                    <a href="{{route('training-units.edit',$trainingUnit)}}">Editar</a>
+                </td>
+                <td>{!! Form::open(['route'=>['training-units.destroy',$trainingUnit],'method'=>'DELETE']) !!}
+                    {!! Form::submit('Borrar') !!}
+                    {!! Form::close() !!}
+                </td>
             </tr>
             @endforeach
         </tbody>
