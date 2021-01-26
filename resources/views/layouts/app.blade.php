@@ -23,7 +23,8 @@
     <style rel="stylesheet">
         {{-- Cambiar por colores ejército: Son colores temporales--}}
         body{
-            background-color: #3498DB   ;
+            background: linear-gradient(to right, #3498DB , #AED6F1);
+            
             <!-- Colores de fondo -->
         }
         .titulos{
@@ -34,25 +35,33 @@
         }
 
         h3{font-family: 'Fraunces', serif;
-        font-family: 'Open Sans', sans-serif;
+            font-size: 140%;
+            
         }
         
+        h4{font-family: 'Fraunces', serif;
+        font-family: 'Open Sans', sans-serif;
+        }
+
         nav{
             background-color: #21618C ;
             <!-- Color barra superior -->
         }
         main{
             margin-top: 10%;
-            background-color:#AED6F1;
+            background-color:#21618C;
             border-radius:20px;
+            font-family: 'Open Sans', sans-serif;
+            color:black;
         }
         table{
             margin: auto ;
             background-color:#21618C;
+            
 
         }
         .boton{
-            background-color: #2a9055;
+            background-color: #3498DB ;
             color: white;
         }
 
