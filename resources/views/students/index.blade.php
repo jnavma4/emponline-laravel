@@ -31,6 +31,6 @@
         @endforeach
         </tbody>
     </table>
-    <a class="btn boton" href="{{route('students.create')}}">Dar de alta</a>
+    <a class="btn boton" href="{{route('students.create')}}"><img src="{{asset('img/agregar-usuario.svg')}}" height="20px"/> Dar de alta</a>
 
 @endsection

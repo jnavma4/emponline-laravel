@@ -29,6 +29,6 @@
         </tbody>
     </table>
 
-<a class="btn boton" href="{{route('training-units.create')}}"> <img src="{{asset('img/añadirblanco.svg')}}" height="20px"/>Crear unidad formativa</a>
+<a class="btn boton" href="{{route('training-units.create')}}"> <img src="{{asset('img/añadirblanco.svg')}}" height="20px"/> Crear unidad formativa</a>
 
 @endsection

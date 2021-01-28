@@ -34,6 +34,6 @@
         </tbody>
     </table>
 
-    <a class="btn boton" href="{{route('teachers.create')}}">Dar de alta</a>
+    <a class="btn boton" href="{{route('teachers.create')}}"><img src="{{asset('img/agregar-usuario.svg')}}" height="20px"/> Dar de alta</a>
 
 @endsection
