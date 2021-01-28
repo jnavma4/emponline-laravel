@@ -45,6 +45,7 @@
 
         nav{
             background-color: #21618C ;
+            
             <!-- Color barra superior -->
         }
         main{
@@ -58,12 +59,20 @@
             margin: auto ;
             background-color:#21618C;
             
-
         }
+
         .boton{
             background-color: #3498DB ;
-            color: white;
         }
+        .card {
+            background-color: #3498DB ;
+            
+        }
+        .thead-dark {
+            background-color:  ;
+            
+        }
+        thead-dark
 
     </style>
 </head>

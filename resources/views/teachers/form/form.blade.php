@@ -5,8 +5,6 @@
 <div class="mb-3">
 {!! Form::label('name','Nombre') !!}
 {!! Form::text('name')!!}
-</div>
-<div class="mb-3">
 {!! Form::label('last_name','Apellidos') !!}
 {!! Form::text('last_name')!!}
 </div>
