@@ -28,6 +28,7 @@
                     {!! Form::submit('Borrar') !!}
                     {!! Form::close() !!}
                 </td>
+
             </tr>
         @endforeach
         </tbody>
