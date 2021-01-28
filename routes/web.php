@@ -29,4 +29,6 @@ Route::resource('/teachers',App\Http\Controllers\TeacherController::class)->name
 //Ruta de alumnos
 Route::resource('/students',App\Http\Controllers\StudentController::class)->names('students');
 
-
+Route::get('/admin',function (){
+    return view('admin');
+});

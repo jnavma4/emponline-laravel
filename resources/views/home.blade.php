@@ -1,7 +1,16 @@
-@extends('layouts.app')
+<html lang="es-ES">
+<head>
+<meta charset="utf-8">
+    <title>General alumnos</title>
+    <link href="{!! asset('css/app.css') !!}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}" defer></script>
+</head>
 
-@section('content')
+<body>
 <div class="container">
+    <nav>
+
+    </nav>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -20,4 +29,5 @@
         </div>
     </div>
 </div>
-@endsection
+</body>
+</html>
