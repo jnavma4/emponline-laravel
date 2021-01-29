@@ -18,10 +18,10 @@
 
     @endforeach
         <div class="card-body">
-            <a class="btn btn-outline-primary" href="{{route('training-units.create')}}">Crear unidad formativa</a>
+            <a class="btn btn-primary" href="{{route('training-units.create')}}">Crear unidad formativa</a>
         </div>
         <div class="card-footer">
-            <a class="btn btn-outline-primary" href="{{route('courses.index')}}"><img src="{{asset('img/deshacer.svg')}}" height="25px"/> Volver</a>
+            <a class="btn btn-primary" href="{{route('courses.index')}}"><img src="{{asset('img/deshacer.svg')}}" height="25px"/> Volver</a>
         </div>
 
     </div>
