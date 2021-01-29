@@ -5,33 +5,44 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TeacherController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $teachers=Teacher::latest()->paginate(15);
-        return view('teachers.index',compact('teachers'));
+        if ( Auth::user()->tipo_usuario==2) {
+            $teachers = Teacher::latest()->paginate(15);
+            return view('teachers.index', compact('teachers'));
+        }
     }
     public function create()
     {
-        $courses=Course::orderBy('name','ASC')->pluck('name','id');
-        return view('teachers.create',compact('courses'));
+        if ( Auth::user()->tipo_usuario==2) {
+            $courses = Course::orderBy('name', 'ASC')->pluck('name', 'id');
+            return view('teachers.create', compact('courses'));
+        }
     }
     public function store(Request $request)
     {
-        $request->validate([
-            'dni'=>'required|unique:teachers',
-            'name'=>'required',
-            'last_name'=>'required',
-            'birth_date'=>'required',
-            'phone_number'=>'required|max:9|min:9',
-            'email'=>'required',
-            'course_id'=>'required'
-        ]);
+        if ( Auth::user()->tipo_usuario==2) {
+            $request->validate([
+                'dni' => 'required|unique:teachers',
+                'name' => 'required',
+                'last_name' => 'required',
+                'birth_date' => 'required',
+                'phone_number' => 'required|max:9|min:9',
+                'email' => 'required',
+                'course_id' => 'required'
+            ]);
 
-        Teacher::create($request->all());
-        return redirect()->route('teachers.index')->with('success','Se ha creado correctamente');
+            Teacher::create($request->all());
+            return redirect()->route('teachers.index')->with('success', 'Se ha creado correctamente');
+        }
     }
 
     /**
@@ -47,31 +58,36 @@ class TeacherController extends Controller
 
     public function edit(Teacher $teacher)
     {
-        $courses=Course::orderBy('name','ASC')->pluck('name','id');
-        return view('teachers.edit',compact('teacher','courses'));
-
+        if ( Auth::user()->tipo_usuario==2) {
+            $courses = Course::orderBy('name', 'ASC')->pluck('name', 'id');
+            return view('teachers.edit', compact('teacher', 'courses'));
+        }
     }
 
     public function update(Request $request, Teacher $teacher)
     {
-        $request->validate([
-            'dni'=>'required',
-            'name'=>'required',
-            'last_name'=>'required',
-            'birth_date'=>'required',
-            'phone_number'=>'required|max:9|min:9',
-            'email'=>'required',
-            'course_id'=>'required'
-        ]);
+        if ( Auth::user()->tipo_usuario==2) {
+            $request->validate([
+                'dni' => 'required',
+                'name' => 'required',
+                'last_name' => 'required',
+                'birth_date' => 'required',
+                'phone_number' => 'required|max:9|min:9',
+                'email' => 'required',
+                'course_id' => 'required'
+            ]);
 
 
-        $teacher->update($request->all());
-        return redirect()->route('teachers.index')->with('success','Se ha actualizado');
+            $teacher->update($request->all());
+            return redirect()->route('teachers.index')->with('success', 'Se ha actualizado');
+        }
     }
 
     public function destroy(Teacher $teacher)
     {
+        if ( Auth::user()->tipo_usuario==2) {
         $teacher->delete();
         return redirect()->route('teachers.index')->with('success','Se ha borrado exitosamente');
+        }
     }
 }
