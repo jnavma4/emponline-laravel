@@ -27,9 +27,7 @@
             
             <!-- Colores de fondo -->
         }
-        .titulos{
-
-        }
+    
         
         h2{font-family: 'Open Sans', sans-serif;
         }
