@@ -17,7 +17,7 @@ class CourseController extends Controller
 
     public function index()
     {
-        if (Auth::user()->user_type==1 || Auth::user()->user_type==2) {
+        if (Auth::user()->tipo_usuario==1 || Auth::user()->tipo_usuario==2) {
             $courses = Course::latest()->paginate(15);
             return view('courses.index', compact('courses'));
         }
@@ -26,7 +26,7 @@ class CourseController extends Controller
 
     public function create()
     {
-        if ( Auth::user()->user_type==2) {
+        if ( Auth::user()->tipo_usuario==2) {
             return view('courses.create');
         }
     }
@@ -34,7 +34,7 @@ class CourseController extends Controller
 
     public function store(Request $request)
     {
-        if ( Auth::user()->user_type==2) {
+        if ( Auth::user()->tipo_usuario==2) {
             $request->validate([
                 'name' => 'required|unique:courses',
                 'hours' => 'required',
@@ -47,21 +47,21 @@ class CourseController extends Controller
 
     public function show(Course $course)
     {
-        if (Auth::user()->user_type==1 || Auth::user()->user_type==2) {
+        if (Auth::user()->tipo_usuario==1 || Auth::user()->tipo_usuario==2) {
             $ufos = DB::table('training_units')->where('course_id', $course->id)->get();
             return view('courses.show', compact('course', 'ufos'));
         }
     }
     public function edit(Course $course)
     {
-        if (Auth::user()->user_type==1 || Auth::user()->user_type==2) {
+        if (Auth::user()->tipo_usuario==1 || Auth::user()->tipo_usuario==2) {
             return view('courses.edit', compact('course'));
         }
     }
 
     public function update(Request $request, Course $course)
     {
-        if (Auth::user()->user_type==1 || Auth::user()->user_type==2) {
+        if (Auth::user()->tipo_usuario==1 || Auth::user()->tipo_usuario==2) {
             $request->validate([
                 'name' => 'required',
                 'hours' => 'required',
@@ -73,7 +73,7 @@ class CourseController extends Controller
     }
     public function destroy(Course $course)
     {
-        if (Auth::user()->user_type==1 || Auth::user()->user_type==2) {
+        if (Auth::user()->tipo_usuario==1 || Auth::user()->tipo_usuario==2) {
             $course->delete();
             return redirect()->route('courses.index')->with('success', 'Se ha borrado exitosamente');
         }

@@ -15,7 +15,7 @@ class TrainingUnitController extends Controller
     }
     public function index()
     {
-        if ( Auth::user()->user_type==2) {
+        if ( Auth::user()->tipo_usuario==2) {
             $trainingUnits = TrainingUnit::latest()->paginate('20');
             return view('training-units.index', compact('trainingUnits'));
         }
@@ -24,7 +24,7 @@ class TrainingUnitController extends Controller
 
     public function create()
     {
-        if ( Auth::user()->user_type==2) {
+        if ( Auth::user()->tipo_usuario==2) {
             $courses = Course::orderBy('name', 'ASC')->pluck('name', 'id');
             return view('training-units.create', compact('courses'));
 
@@ -33,7 +33,7 @@ class TrainingUnitController extends Controller
 
     public function store(Request $request)
     {
-        if ( Auth::user()->user_type==2) {
+        if ( Auth::user()->tipo_usuario==2) {
             $request->validate([
                 'title' => 'required',
                 'body' => 'required',
@@ -47,14 +47,14 @@ class TrainingUnitController extends Controller
 
     public function show(TrainingUnit $trainingUnit)
     {
-        if ( Auth::user()->user_type==2) {
+        if ( Auth::user()->tipo_usuario==2) {
             return view('training-units.show', compact('trainingUnit'));
         }
     }
 
     public function edit(TrainingUnit $trainingUnit)
     {
-        if ( Auth::user()->user_type==2) {
+        if ( Auth::user()->tipo_usuario==2) {
             $courses = Course::orderBy('name', 'ASC')->pluck('name', 'id');
             return view('training-units.edit', compact('trainingUnit', 'courses'));
         }
@@ -62,7 +62,7 @@ class TrainingUnitController extends Controller
 
     public function update(Request $request, TrainingUnit $trainingUnit)
     {
-        if ( Auth::user()->user_type==2) {
+        if ( Auth::user()->tipo_usuario==2) {
             $request->validate([
                 'title' => 'required',
                 'body' => 'required',
@@ -76,7 +76,7 @@ class TrainingUnitController extends Controller
 
     public function destroy(TrainingUnit $trainingUnit)
     {
-        if ( Auth::user()->user_type==2) {
+        if ( Auth::user()->tipo_usuario==2) {
             $trainingUnit->delete();
             return redirect()->route('training-units.index')->with('success', 'Se ha borrado exitosamente');
         }

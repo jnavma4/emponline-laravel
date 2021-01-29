@@ -15,21 +15,21 @@ class TeacherController extends Controller
     }
     public function index()
     {
-        if ( Auth::user()->user_type==2) {
+        if ( Auth::user()->tipo_usuario==2) {
             $teachers = Teacher::latest()->paginate(15);
             return view('teachers.index', compact('teachers'));
         }
     }
     public function create()
     {
-        if ( Auth::user()->user_type==2) {
+        if ( Auth::user()->tipo_usuario==2) {
             $courses = Course::orderBy('name', 'ASC')->pluck('name', 'id');
             return view('teachers.create', compact('courses'));
         }
     }
     public function store(Request $request)
     {
-        if ( Auth::user()->user_type==2) {
+        if ( Auth::user()->tipo_usuario==2) {
             $request->validate([
                 'dni' => 'required|unique:teachers',
                 'name' => 'required',
@@ -58,7 +58,7 @@ class TeacherController extends Controller
 
     public function edit(Teacher $teacher)
     {
-        if ( Auth::user()->user_type==2) {
+        if ( Auth::user()->tipo_usuario==2) {
             $courses = Course::orderBy('name', 'ASC')->pluck('name', 'id');
             return view('teachers.edit', compact('teacher', 'courses'));
         }
@@ -66,7 +66,7 @@ class TeacherController extends Controller
 
     public function update(Request $request, Teacher $teacher)
     {
-        if ( Auth::user()->user_type==2) {
+        if ( Auth::user()->tipo_usuario==2) {
             $request->validate([
                 'dni' => 'required',
                 'name' => 'required',
@@ -85,9 +85,9 @@ class TeacherController extends Controller
 
     public function destroy(Teacher $teacher)
     {
-        if ( Auth::user()->user_type==2) {
-            $teacher->delete();
-            return redirect()->route('teachers.index')->with('success', 'Se ha borrado exitosamente');
+        if ( Auth::user()->tipo_usuario==2) {
+        $teacher->delete();
+        return redirect()->route('teachers.index')->with('success','Se ha borrado exitosamente');
         }
     }
 }
