@@ -6,7 +6,7 @@
     {!! Form::model($course,['route'=>['courses.update',$course],'method'=>'PUT','files'=>'true']) !!}
         @include('courses.form.form')
         <a class='btn btn-primary'  href="{{route('courses.index')}}">Cancelar</a>
-        {!! Form::submit('Guardar') !!}
+        {!! Form::submit('Guardar',['class'=>'btn btn-primary']) !!}
     {!! Form::close() !!}
     </h3>
 @endsection
